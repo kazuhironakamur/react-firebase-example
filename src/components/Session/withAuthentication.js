@@ -2,6 +2,7 @@ import React from "react";
 
 import AuthUserContext from "./context";
 import { withFirebase } from "../Firebase";
+//import * as ROLES from "../../constants/roles";
 
 const withAuthentication = (Component) => {
   class WithAuthentication extends React.Component {
@@ -19,6 +20,19 @@ const withAuthentication = (Component) => {
           authUser
             ? this.setState({ authUser })
             : this.setState({ authUser: null });
+          // ADMINロールで判定するためのテスト
+          // if (authUser) {
+          //   authUser.roles = {
+          //     isAdmin: false,
+          //   };
+          //   this.setState({
+          //     authUser,
+          //   });
+          // } else {
+          //   this.setState({
+          //     authUser: null,
+          //   });
+          // }
         }
       );
     }
